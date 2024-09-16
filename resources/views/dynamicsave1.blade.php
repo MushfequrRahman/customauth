@@ -3,194 +3,116 @@
 
 
 <div class="container mt-5">
-    <h3 class="text-center mb-4">Dynamic File Upload with Table Layout</h3>
+        <h2>Dynamic User Form</h2>
+        <form id="userForm" action="{{ route('admin.dynamicsavestore1') }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
-    <form id="dynamicForm" action="{{ route('admin.dynamicsavestore1') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <table class="table table-bordered">
-            <thead>
-                <tr class="text-center">
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>File</th>
-                    <th><button type="button" id="addRow" class="btn btn-secondary">ADD</button></th>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="dynamic-table">
+                    <tr id="row-0">
+                        <td><input type="text" name="users[0][name]" class="form-control" placeholder="Name" required></td>
+                        <td><input type="email" name="users[0][email]" class="form-control" placeholder="Email" required></td>
+                        <td><input type="password" name="users[0][password]" class="form-control" placeholder="Password" required></td>
+                        <td><input type="file" name="users[0][image]" class="form-control image-input" data-row="0" required>
+                            <span class="error-message" id="error-0"></span>
+                        </td>
+                        <td><button type="button" class="btn btn-danger btn-sm remove-row" data-row="0">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" id="add-row" class="btn btn-primary">Add Row</button>
+            <button type="submit" id="submit-btn" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        let rowIndex = 1;
+
+        // Add a new row dynamically
+        document.getElementById('add-row').addEventListener('click', function() {
+            const dynamicTable = document.getElementById('dynamic-table');
+            const newRow = `
+                <tr id="row-${rowIndex}">
+                    <td><input type="text" name="users[${rowIndex}][name]" class="form-control" placeholder="Name" required></td>
+                    <td><input type="email" name="users[${rowIndex}][email]" class="form-control" placeholder="Email" required></td>
+                    <td><input type="password" name="users[${rowIndex}][password]" class="form-control" placeholder="Password" required></td>
+                    <td><input type="file" name="users[${rowIndex}][image]" class="form-control image-input" data-row="${rowIndex}" required>
+                        <span class="error-message" id="error-${rowIndex}"></span>
+                    </td>
+                    <td><button type="button" class="btn btn-danger btn-sm remove-row" data-row="${rowIndex}">Remove</button></td>
                 </tr>
-            </thead>
-            <tbody id="dynamicRows">
-                <tr class="row-container">
+            `;
+            dynamicTable.insertAdjacentHTML('beforeend', newRow);
+            rowIndex++;
+        });
 
-
-                    <td><input type="text" name="name[]" class="form-control name-input" placeholder="Name" required onkeyup="validateName(this)">
-                        <small class="text-danger name-error" style="display:none;">Name is required!</small>
-                    </td>
-
-                    <td><input type="text" name="email[]" class="form-control email-input" placeholder="Email" required onkeyup="validateEmail(this)">
-                        <small class="text-danger email-error" style="display:none;">Email is required!</small>
-                    </td>
-
-                    <td><input type="text" name="password[]" class="form-control password-input" placeholder="Password" required onkeyup="validatePassword(this)">
-                        <small class="text-danger password-error" style="display:none;">Password is required!</small>
-                    </td>
-                    <td><input type="file" name="files[]" class="form-control file-input" required onchange="validateFile(this)">
-                        <small class="text-danger file-error" style="display:none;">Invalid file type or size!</small>
-                    </td>
-                    <!-- <select name="types[]" class="form-control" required>
-                <option value="">Select Type</option>
-                <option value="image">Image</option>
-                <option value="document">Document</option>
-            </select> -->
-
-                    <td>
-                        <span class="remove-row btn btn-sm btn-danger">Remove</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="d-flex justify-content-between">
-            <!-- <button type="button" id="addRow" class="btn btn-secondary">Add More Rows</button> -->
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-</div>
-
-
-
-<!-- JavaScript for dynamic rows and validation -->
-<script>
-    // Allowed file types and maximum size (2MB)
-    var allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
-    var maxSizeInBytes = 2 * 1024 * 1024; // 2MB
-
-    // Validate file input
-    function validateFile(input) {
-        var file = input.files[0];
-        var errorElement = input.nextElementSibling; // Error message small tag
-
-        if (file && (allowedTypes.includes(file.type) && file.size <= maxSizeInBytes)) {
-            errorElement.style.display = 'none'; // Hide error message if valid
-        } else {
-            errorElement.style.display = 'block'; // Show error message if invalid
-        }
-    }
-
-    // Real-time validation for file input
-    function validateFile(input) {
-        var file = input.files[0];
-        var errorElement = input.nextElementSibling; // Error message small tag
-
-        if (file && (allowedTypes.includes(file.type) && file.size <= maxSizeInBytes)) {
-            errorElement.style.display = 'none'; // Hide error message if valid
-        } else {
-            errorElement.style.display = 'block'; // Show error message if invalid
-        }
-    }
-
-    // Real-time validation for description input
-    function validateName(input) {
-        var name = input.value.trim();
-        var errorElement = input.nextElementSibling; // Small tag for the error message
-
-        if (name === '') {
-            errorElement.style.display = 'block'; // Show error message
-        } else {
-            errorElement.style.display = 'none'; // Hide error message
-        }
-    }
-
-    function validateEmail(input) {
-        var email = input.value.trim();
-        var errorElement = input.nextElementSibling; // Small tag for the error message
-
-        if (email === '') {
-            errorElement.style.display = 'block'; // Show error message
-        } else {
-            errorElement.style.display = 'none'; // Hide error message
-        }
-    }
-
-    function validatePassword(input) {
-        var password = input.value.trim();
-        var errorElement = input.nextElementSibling; // Small tag for the error message
-
-        if (password === '') {
-            errorElement.style.display = 'block'; // Show error message
-        } else {
-            errorElement.style.display = 'none'; // Hide error message
-        }
-    }
-
-    // Add a new row dynamically
-    document.getElementById('addRow').addEventListener('click', function() {
-        var newRow = document.querySelector('.row-container').cloneNode(true);
-        newRow.querySelectorAll('input').forEach(input => input.value = ''); // Clear input values
-        //newRow.querySelector('select').selectedIndex = 0; // Reset select
-        newRow.querySelectorAll('small').forEach(error => error.style.display = 'none'); // Hide error messages
-        document.getElementById('dynamicRows').appendChild(newRow);
-    });
-
-    // Remove row functionality
-    document.addEventListener('click', function(e) {
-        if (e.target && e.target.classList.contains('remove-row')) {
-            if (document.querySelectorAll('.row-container').length > 1) {
-                e.target.closest('.row-container').remove();
-            } else {
-                alert('At least one row is required.');
-            }
-        }
-    });
-
-    document.getElementById('dynamicForm').onsubmit = function(event) {
-        var fileInputs = document.querySelectorAll('.file-input');
-        var names = document.querySelectorAll('input[name="name[]"]');
-        var emails = document.querySelectorAll('input[name="email[]"]');
-        var passwords = document.querySelectorAll('input[name="password[]"]');
-        var valid = true;
-
-        fileInputs.forEach(function(fileInput, index) {
-            var file = fileInput.files[0];
-            var name = names[index].value.trim();
-            var email = emails[index].value.trim();
-            var password = passwords[index].value.trim();
-            var errorElement = fileInput.nextElementSibling;
-
-            // Check if file is valid
-            if (!file || !allowedTypes.includes(file.type) || file.size > maxSizeInBytes) {
-                errorElement.style.display = 'block';
-                valid = false;
-            } else {
-                errorElement.style.display = 'none';
-            }
-
-            // Check if name is valid
-            if (name === '') {
-                names[index].nextElementSibling.style.display = 'block';
-                valid = false;
-            } else {
-                names[index].nextElementSibling.style.display = 'none';
-            }
-
-            // Check if email is valid
-            if (email === '') {
-                emails[index].nextElementSibling.style.display = 'block';
-                valid = false;
-            } else {
-                emails[index].nextElementSibling.style.display = 'none';
-            }
-
-            // Check if password is valid
-            if (password === '') {
-                passwords[index].nextElementSibling.style.display = 'block';
-                valid = false;
-            } else {
-                passwords[index].nextElementSibling.style.display = 'none';
+        // Remove a row dynamically
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-row')) {
+                const rowId = event.target.dataset.row;
+                document.getElementById(`row-${rowId}`).remove();
             }
         });
 
-        // Prevent submission if validation fails
-        if (!valid) {
-            event.preventDefault();
-        }
-    };
-</script>
+        // Real-time validation for image files
+        document.addEventListener('change', function(event) {
+            if (event.target.classList.contains('image-input')) {
+                const fileInput = event.target;
+                const rowId = fileInput.dataset.row;
+                const errorMessage = document.getElementById(`error-${rowId}`);
+
+                // Get the file object
+                const file = fileInput.files[0];
+                if (file) {
+                    // Validate file size (2MB = 2048 * 1024 bytes)
+                    const maxSize = 2048 * 1024; 
+                    if (file.size > maxSize) {
+                        errorMessage.textContent = "File size must be less than 2MB.";
+                        fileInput.value = ""; // Clear the file input
+                    } else {
+                        errorMessage.textContent = "";
+                    }
+
+                    // Validate file type (allow only jpg, jpeg, png, gif)
+                    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+                    if (!allowedTypes.includes(file.type)) {
+                        errorMessage.textContent = "Only JPG, JPEG, PNG, and GIF files are allowed.";
+                        fileInput.value = ""; // Clear the file input
+                    } else {
+                        errorMessage.textContent = "";
+                    }
+                }
+            }
+        });
+
+        // Disable form submission if there are errors
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            const errorMessages = document.querySelectorAll('.error-message');
+            let hasError = false;
+
+            // Check if any error messages exist
+            errorMessages.forEach(function(errorMessage) {
+                if (errorMessage.textContent !== "") {
+                    hasError = true;
+                }
+            });
+
+            if (hasError) {
+                event.preventDefault(); // Prevent form submission
+                alert("Please fix the errors before submitting.");
+            }
+        });
+    </script>

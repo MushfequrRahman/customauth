@@ -166,30 +166,62 @@ class HomeController extends Controller
     }
     public function dynamicsavestore1(Request $request)
     {
-        $validatedData = $request->validate([
-            'files.*' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048', // File validation
-            'name.*' => 'required|string|max:255',
-            'email.*' => 'required|array',
-            'password.*' => 'required|string',
-        ]);
+        // $validatedData = $request->validate([
+        //     'files.*' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048', // File validation
+        //     'name.*' => 'required|string|max:255',
+        //     'email.*' => 'required|array',
+        //     'password.*' => 'required|string',
+        // ]);
     
-        foreach ($request->files as $index => $file) {
-            // Save file
-            $path = $file->store('uploads', 'public');
+        // foreach ($request->files as $index => $file) {
+        //     // Save file
+        //     $path = $file->store('uploads', 'public');
     
-            // Create record in the database
-            // DB::table('custom_user1')->insert([
+        //     // Create record in the database
+        //     DB::table('custom_user1')->insert([
                 
-            // 'name' => $request->name[$index],
-            // 'email' => $request->email[$index],
-            // 'password' => $request->password[$index],
-            // 'image' => $path,
-            // 'created_at' => now(),
-            //         'updated_at' => now(),
-            // ]);
-            echo $request->name[$index];
+        //     'name' => $request->name[$index],
+        //     'email' => $request->email[$index],
+        //     'password' => $request->password[$index],
+        //     'image' => $path,
+        //     'created_at' => now(),
+        //             'updated_at' => now(),
+        //     ]);
+        //     echo $request->name[$index];
+        // }
+
+        // return redirect()->back()->with('su', 'Rows successfully saved!');
+
+
+        // Validate all dynamic input rows
+        $validatedData = $request->validate([
+            'users.*.name' => 'required|string|max:255',
+            'users.*.email' => 'required|email|unique:users,email',
+            'users.*.password' => 'required|string|min:6',
+            'users.*.image' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048', // Validate the image file
+        ]);
+
+        // Iterate through each user's data
+        foreach ($request->input('users') as $index => $userData) {
+            // Check if the file exists in the request for this user
+            $imagePath = null;
+            if ($request->hasFile("users.$index.image")) {
+                // Store the image file and get the path
+                $imagePath = $request->file("users.$index.image")->store('uploads', 'public');
+            }
+
+            // Save user data using query builder
+            DB::table('custom_user1')->insert([
+                'name' => $userData['name'],
+                'email' => $userData['email'],
+                'password' => bcrypt($userData['password']), // Hash the password
+                'image' => $imagePath, // Save the image path
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
         }
 
-        //return redirect()->back()->with('su', 'Rows successfully saved!');
+        // Redirect back with success message
+        return redirect()->back()->with('su', 'Users saved successfully with images.');
     }
 }

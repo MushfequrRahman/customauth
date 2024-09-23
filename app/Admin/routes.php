@@ -21,6 +21,9 @@ Route::group([
     $router->post('/dynamicsave', 'HomeController@dynamicsavestore')->name('dynamicsavestore');
     $router->get('/dynamicsave1', 'HomeController@dynamicsave1')->name('dynamcisave1');
     $router->post('/dynamicsave1', 'HomeController@dynamicsavestore1')->name('dynamicsavestore1');
+    $router->get('/dynamicsave2', 'HomeController@dynamicsave2')->name('dynamcisave2');
+    $router->post('/dynamicsave2', 'HomeController@dynamicsavestore2')->name('dynamicsavestore2');
+
     $router->get('/auth/login', function () {
         return view("login");
     });

@@ -224,4 +224,85 @@ class HomeController extends Controller
         // Redirect back with success message
         return redirect()->back()->with('su', 'Users saved successfully with images.');
     }
+    public function dynamicsave2(Content $content)
+    {
+        return $content
+            ->css_file(Admin::asset("open-admin/css/pages/dashboard.css"))
+            ->title('Dynamic Save')
+            ->view('dynamicsave2');
+    }
+    public function dynamicsavestore2(Request $request)
+    {
+        
+
+
+        // // Validate all dynamic input rows
+        // $validatedData = $request->validate([
+        //     'users.*.name' => 'required|string|max:255',
+        //     'users.*.email' => 'required|email|unique:users,email',
+        //     'users.*.password' => 'required|string|min:6',
+        //     'users.*.image' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048', // Validate the image file
+        // ]);
+
+        // // Iterate through each user's data
+        // foreach ($request->input('users') as $index => $userData) {
+        //     // Check if the file exists in the request for this user
+        //     $imagePath = null;
+        //     if ($request->hasFile("users.$index.image")) {
+        //         // Store the image file and get the path
+        //         $imagePath = $request->file("users.$index.image")->store('uploads', 'public');
+        //     }
+
+        //     // Save user data using query builder
+        //     DB::table('custom_user1')->insert([
+        //         'name' => $userData['name'],
+        //         'email' => $userData['email'],
+        //         'password' => bcrypt($userData['password']), // Hash the password
+        //         'image' => $imagePath, // Save the image path
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
+        // }
+
+        // // Redirect back with success message
+        // return redirect()->back()->with('su', 'Users saved successfully with images.');
+
+
+
+
+
+        // Validate the form data
+        $request->validate([
+            'name.*' => 'required|string|max:255',
+            'email.*' => 'required|email|max:255',
+            'password.*' => 'required|string|min:6',
+            'file.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        ]);
+
+        // Process and save the data
+        $userData = [];
+        foreach ($request->name as $key => $name) {
+            $userData[] = [
+                'name' => $name,
+                'email' => $request->email[$key],
+                'password' => bcrypt($request->password[$key]), // Hash password
+                'file' => $request->file('file')[$key] ? $request->file('file')[$key]->store('uploads') : null,
+            ];
+            // Save user data using query builder
+            DB::table('custom_user1')->insert([
+                'name' => $userData['name'],
+                'email' => $userData['email'],
+                'password' => bcrypt($userData['password']), // Hash the password
+                'image' => $userData['name'], // Save the image path
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        // Example: Store the data in a database (optional)
+        // YourModel::insert($data);
+
+        // Return a JSON response for the AJAX success handler
+        return response()->json(['message' => 'Form submitted successfully!'], 200);
+    }
 }

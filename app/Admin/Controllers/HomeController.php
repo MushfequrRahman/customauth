@@ -306,6 +306,44 @@ class HomeController extends Controller
         // Return a JSON response for the AJAX success handler
         return response()->json(['message' => 'Form submitted successfully!'], 200);
     }
+    public function dynamicsave3(Content $content)
+    {
+        return $content
+            ->css_file(Admin::asset("open-admin/css/pages/dashboard.css"))
+            ->title('Dynamic Save')
+            ->view('dynamicsave3');
+    }
+    public function dynamicsavestore3(Request $request)
+    {
+        
+
+
+        // Validate the request
+        $request->validate([
+            'name.*' => 'required|string|max:255',
+            'email.*' => 'required|email|unique:custom_user1,email',
+            'password.*' => 'required|string|min:6',
+            'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Loop through each user input
+        foreach ($request->name as $index => $name) {
+            // Store the uploaded image
+            $imagePath = $request->file('image')[$index]->store('images');
+
+            // Insert data into the database using query builder
+            DB::table('custom_user1')->insert([
+                'name' => $name,
+                'email' => $request->email[$index],
+                'password' => bcrypt($request->password[$index]),
+                'image' => $imagePath,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        return response()->json(['message' => 'Users registered successfully!'], 200);
+    }
     public function ajaxvalue(Content $content)
     {
         return $content

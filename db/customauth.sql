@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2024 at 08:55 AM
+-- Generation Time: Sep 29, 2024 at 12:30 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -60,7 +60,8 @@ INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `p
 (13, 0, 0, 'Custom', 'icon-allergies', NULL, NULL, '2024-09-10 03:38:01', '2024-09-10 03:38:01'),
 (14, 13, 0, 'Multiple Row-2', 'icon-align-justify', 'dynamicsave2', NULL, '2024-09-21 21:58:20', '2024-09-21 21:58:20'),
 (15, 13, 0, 'Ajax value Save', 'icon-asterisk', 'ajaxvalue', NULL, '2024-09-28 22:20:47', '2024-09-28 22:20:47'),
-(16, 13, 0, 'Ajax Value save-1', 'icon-arrows-alt-h', 'ajaxvalue1', NULL, '2024-09-28 23:32:23', '2024-09-28 23:32:23');
+(16, 13, 0, 'Ajax Value save-1', 'icon-arrows-alt-h', 'ajaxvalue1', NULL, '2024-09-28 23:32:23', '2024-09-28 23:32:23'),
+(17, 13, 0, 'Multiple Row-3', 'icon-atlas', 'dynamicsave3', NULL, '2024-09-29 03:52:31', '2024-09-29 03:52:31');
 
 -- --------------------------------------------------------
 
@@ -930,7 +931,26 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (842, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:44:25', '2024-09-29 00:44:25'),
 (843, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax5@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:44:47', '2024-09-29 00:44:47'),
 (844, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:47:11', '2024-09-29 00:47:11'),
-(845, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax6@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:47:43', '2024-09-29 00:47:43');
+(845, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax6@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:47:43', '2024-09-29 00:47:43'),
+(846, 1, 'admin/dynamicsave2', 'GET', '127.0.0.1', '[]', '2024-09-29 01:17:05', '2024-09-29 01:17:05'),
+(847, 1, 'admin/dynamicsave2', 'GET', '127.0.0.1', '[]', '2024-09-29 01:18:31', '2024-09-29 01:18:31'),
+(848, 1, 'admin/dynamicsave2', 'POST', '127.0.0.1', '{\"name\":[\"m1\",\"mm2\"],\"email\":[\"mm1@mm.com\",\"mm2@mm.com\"],\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 01:19:12', '2024-09-29 01:19:12'),
+(849, 1, 'admin/dynamicsave2', 'GET', '127.0.0.1', '[]', '2024-09-29 01:59:26', '2024-09-29 01:59:26'),
+(850, 1, 'admin/dynamicsave2', 'GET', '127.0.0.1', '[]', '2024-09-29 02:01:10', '2024-09-29 02:01:10'),
+(851, 1, 'admin/dynamicsave2', 'POST', '127.0.0.1', '[]', '2024-09-29 02:01:18', '2024-09-29 02:01:18'),
+(852, 1, 'admin/dynamicsave2', 'GET', '127.0.0.1', '[]', '2024-09-29 03:14:27', '2024-09-29 03:14:27'),
+(853, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2024-09-29 03:51:49', '2024-09-29 03:51:49'),
+(854, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"13\",\"search_terms\":null,\"title\":\"Multiple Row-3\",\"icon\":\"icon-atlas\",\"uri\":\"dynamicsave3\",\"roles\":[null],\"permission\":null,\"_token\":\"YslU3iIVLsNKJbGaJg2J8i0KNtCPvXiHGa0fqkKv\"}', '2024-09-29 03:52:31', '2024-09-29 03:52:31'),
+(855, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2024-09-29 03:52:31', '2024-09-29 03:52:31'),
+(856, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2024-09-29 03:52:35', '2024-09-29 03:52:35'),
+(857, 1, 'admin/dynamicsave3', 'GET', '127.0.0.1', '[]', '2024-09-29 03:52:40', '2024-09-29 03:52:40'),
+(858, 1, 'admin/dynamicsave3', 'GET', '127.0.0.1', '[]', '2024-09-29 03:52:43', '2024-09-29 03:52:43'),
+(859, 1, 'admin/dynamicsave3', 'POST', '127.0.0.1', '{\"name\":[\"mm\",\"mm1\"],\"email\":[\"mm@mm.com\",\"mm1@mm.com\"],\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 03:53:40', '2024-09-29 03:53:40'),
+(860, 1, 'admin/dynamicsave3', 'POST', '127.0.0.1', '{\"name\":[\"mm2\",\"mm3\"],\"email\":[\"mm2@mm.com\",\"mm3@mm.com\"],\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 04:00:11', '2024-09-29 04:00:11'),
+(861, 1, 'admin/dynamicsave3', 'GET', '127.0.0.1', '[]', '2024-09-29 04:03:23', '2024-09-29 04:03:23'),
+(862, 1, 'admin/dynamicsave3', 'POST', '127.0.0.1', '{\"name\":[\"mm4\",\"mm5\"],\"email\":[\"mm4@mm.com\",\"mm5@mm.com\"],\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 04:04:12', '2024-09-29 04:04:12'),
+(863, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 04:26:33', '2024-09-29 04:26:33'),
+(864, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 04:27:21', '2024-09-29 04:27:21');
 
 -- --------------------------------------------------------
 
@@ -1130,14 +1150,13 @@ CREATE TABLE `custom_user1` (
 --
 
 INSERT INTO `custom_user1` (`userid`, `name`, `email`, `password`, `image`, `created_at`, `updated_at`) VALUES
-(44, 'ajax', 'ajax@ajax.com', '$2y$10$eA4NRjquMzYK.v5kbxhl9OIKpOw3By46rPmVeOH6lgGnLQ5EukfUi', 'ajax', '2024-09-28 23:00:21', '2024-09-28 23:00:21'),
-(45, 'ajax', 'ajax1@ajax.com', '$2y$10$xa0P4gOgHMDgcFu/CT8WSe5PblXVzJbgAiu9munhxa3u04fq/qT6W', 'ajax', '2024-09-28 23:04:16', '2024-09-28 23:04:16'),
-(46, 'ajax', 'ajax2@ajax.com', '$2y$10$LrAfG.5w5UKXihlcvIaqHOwELP33Pg8wcQBZ37NJFw9wVQ8PF6Db6', 'ajax', '2024-09-28 23:04:58', '2024-09-28 23:04:58'),
-(47, 'ajax', 'a1@a.com', '$2y$10$IwRFHRo4hMmWtO4O3sXCHOcakvp0kD8f8pla4ZmZOs7eoRMIDpirm', 'ajax', '2024-09-29 00:39:24', '2024-09-29 00:39:24'),
-(48, 'ajax', 'ajax3@ajax.com', '$2y$10$m9UHIs71y6D5i32W2XeSNO5VDGPqRCdZU1yG0g15Lr8Sc1kDQsIkq', 'ajax', '2024-09-29 00:40:27', '2024-09-29 00:40:27'),
-(49, 'ajax', 'ajax4@ajax.com', '$2y$10$bJw5Ceu49.bc/85go3Lb/.wAJh.sIekbSGgPXAZ801/sa3QFmzHXW', 'uploads/1727592179_1.png', '2024-09-29 00:42:59', '2024-09-29 00:42:59'),
-(50, 'ajax', 'ajax5@ajax.com', '$2y$10$Qul7lpMhudN06pmcNVEpqOMSKB/PTxxAhj5Mm/fP5mPorRhh4rSx.', 'uploads/1727592287_1.png', '2024-09-29 00:44:47', '2024-09-29 00:44:47'),
-(51, 'ajax', 'ajax6@ajax.com', '$2y$10$WxcT9y3eHSknpEj.lflBKupCwbmzZzBQujwB6VGOPvPv/r6lWOxBa', 'uploads/1727592463_1.png', '2024-09-29 00:47:43', '2024-09-29 00:47:43');
+(52, 'mm', 'mm@mm.com', '$2y$10$T05THaiB9xImNSTIryrdBOZjLgMvqdR2yWPFnpHgRoNtYqeR7SZAC', 'images/Swy1qdib1PO2APqeO4DTkJcTQ5BDu6l5bd1UYJoW.png', '2024-09-29 03:53:40', '2024-09-29 03:53:40'),
+(53, 'mm1', 'mm1@mm.com', '$2y$10$Mqnl10ebYfUw1qPBUY5b8ue510mWXGf9vW3Z1LtXi1QC1hzw5fLwu', 'images/VA4TmR7cA0eXEGemAxe4H5PZq8CYGyAPeEybLvH8.png', '2024-09-29 03:53:40', '2024-09-29 03:53:40'),
+(54, 'mm2', 'mm2@mm.com', '$2y$10$rVxOyzoada3D3b50WA7vbex7XrnXtajHBYHu4IvdfBeREZDM3kuzy', 'images/J7e65YIpKxUFg7ZK27XM2rWuvrC8g4qBXc9OECZv.png', '2024-09-29 04:00:11', '2024-09-29 04:00:11'),
+(55, 'mm3', 'mm3@mm.com', '$2y$10$JMU8sUkvFUObiIgS9wCRbu0Gk9txNrrkUi6eXpHRqIz.GKD9mNa8a', 'images/QIPnZKoySDpheYGu8vTFqBvjn3QfmmpViJSfqPbd.png', '2024-09-29 04:00:11', '2024-09-29 04:00:11'),
+(56, 'mm4', 'mm4@mm.com', '$2y$10$5R.5UVIyvibAdvgwK6K0h.nLkiWCrKxC33hz/XF6w90YmqypK7ZfS', 'images/VuvA5cJ37bulbd8dWLyucZdQ5V3BkN5xsPtTxqBN.png', '2024-09-29 04:04:12', '2024-09-29 04:04:12'),
+(57, 'mm5', 'mm5@mm.com', '$2y$10$20CEuzKvdXi.JThAPPMod.HyfZ.YQkZeZVE0ag.n.2nj8IR4qHVY6', 'images/JPu2VOYnLcQK3p7eBjApTWUuTNdFTYeo0k7HvA09.png', '2024-09-29 04:04:12', '2024-09-29 04:04:12'),
+(58, 'ajax', 'ajax@ajax.com', '$2y$10$UNK20zdLcWQgxm5TOe6MT.Gg4jKLP3FgaW7iEfSVPM6rMw2OyF52W', 'uploads/1727605641_1.png', '2024-09-29 04:27:22', '2024-09-29 04:27:22');
 
 -- --------------------------------------------------------
 
@@ -1347,13 +1366,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=846;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=865;
 
 --
 -- AUTO_INCREMENT for table `admin_permissions`
@@ -1383,7 +1402,7 @@ ALTER TABLE `custom_user`
 -- AUTO_INCREMENT for table `custom_user1`
 --
 ALTER TABLE `custom_user1`
-  MODIFY `userid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `userid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

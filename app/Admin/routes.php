@@ -24,6 +24,9 @@ Route::group([
     $router->get('/dynamicsave2', 'HomeController@dynamicsave2')->name('dynamcisave2');
     $router->post('/dynamicsave2', 'HomeController@dynamicsavestore2')->name('dynamicsavestore2');
 
+    $router->get('/dynamicsave3', 'HomeController@dynamicsave3')->name('dynamcisave3');
+    $router->post('/dynamicsave3', 'HomeController@dynamicsavestore3')->name('dynamicsavestore3');
+
     $router->get('/ajaxvalue', 'HomeController@ajaxvalue')->name('ajaxvalue');
     $router->post('/ajaxvaluepass', 'HomeController@ajaxvaluepass')->name('ajaxvaluepass');
 

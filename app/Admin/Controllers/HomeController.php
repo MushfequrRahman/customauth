@@ -10,6 +10,7 @@ use OpenAdmin\Admin\Layout\Content;
 use OpenAdmin\Admin\Layout\Row;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -304,5 +305,42 @@ class HomeController extends Controller
 
         // Return a JSON response for the AJAX success handler
         return response()->json(['message' => 'Form submitted successfully!'], 200);
+    }
+    public function ajaxvalue(Content $content)
+    {
+        return $content
+            ->css_file(Admin::asset("open-admin/css/pages/dashboard.css"))
+            ->title('Ajax Save')
+            ->view('ajaxvaluepass');
+    }
+
+    public function ajaxvaluepass(Request $request)
+    {
+        // Validate the input
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:custom_user1',
+            'password' => 'required|string|min:8',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        // Store the image file
+        
+
+        // Insert user data into the database using Query Builder
+        DB::table('custom_user1')->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password), // Hash the password
+            'image' => $request->name,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return response()->json(['message' => 'Registration successful!'], 200);
     }
 }

@@ -27,6 +27,9 @@ Route::group([
     $router->get('/ajaxvalue', 'HomeController@ajaxvalue')->name('ajaxvalue');
     $router->post('/ajaxvaluepass', 'HomeController@ajaxvaluepass')->name('ajaxvaluepass');
 
+    $router->get('/ajaxvalue1', 'HomeController@ajaxvalue1')->name('ajaxvalue1');
+    $router->post('/ajaxvaluepass1', 'HomeController@ajaxvaluepass1')->name('ajaxvaluepass1');
+
     $router->get('/auth/login', function () {
         return view("login");
     });

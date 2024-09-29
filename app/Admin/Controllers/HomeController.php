@@ -343,4 +343,41 @@ class HomeController extends Controller
 
         return response()->json(['message' => 'Registration successful!'], 200);
     }
+    public function ajaxvalue1(Content $content)
+    {
+        return $content
+            ->css_file(Admin::asset("open-admin/css/pages/dashboard.css"))
+            ->title('Ajax Save')
+            ->view('ajaxvaluepass1');
+    }
+    public function ajaxvaluepass1(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:custom_user1',
+            'password' => 'required|string|min:6',
+            'image' => 'required|file|mimes:jpg,jpeg,png|max:2048', // Validate the file (image)
+        ]);
+
+        // Handle file upload
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads', $filename, 'public'); // Store the file in the 'public/uploads' directory
+        }
+
+        // Insert the data into the database using Query Builder
+        DB::table('custom_user1')->insert([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')), // Hash the password
+            'image' => $filePath ?? null, // Store file path if file is uploaded
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Return a JSON response
+        return response()->json(['message' => 'User registered successfully!'], 200);
+    }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2024 at 07:06 AM
+-- Generation Time: Sep 29, 2024 at 08:55 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -59,7 +59,8 @@ INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `p
 (12, 13, 0, 'Multiple Row-1', 'icon-address-card', 'dynamicsave1', NULL, '2024-09-10 00:19:17', '2024-09-10 03:40:23'),
 (13, 0, 0, 'Custom', 'icon-allergies', NULL, NULL, '2024-09-10 03:38:01', '2024-09-10 03:38:01'),
 (14, 13, 0, 'Multiple Row-2', 'icon-align-justify', 'dynamicsave2', NULL, '2024-09-21 21:58:20', '2024-09-21 21:58:20'),
-(15, 13, 0, 'Ajax value Save', 'icon-asterisk', 'ajaxvalue', NULL, '2024-09-28 22:20:47', '2024-09-28 22:20:47');
+(15, 13, 0, 'Ajax value Save', 'icon-asterisk', 'ajaxvalue', NULL, '2024-09-28 22:20:47', '2024-09-28 22:20:47'),
+(16, 13, 0, 'Ajax Value save-1', 'icon-arrows-alt-h', 'ajaxvalue1', NULL, '2024-09-28 23:32:23', '2024-09-28 23:32:23');
 
 -- --------------------------------------------------------
 
@@ -866,7 +867,70 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (779, 1, 'admin/ajaxvaluepass', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax1@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-28 23:04:16', '2024-09-28 23:04:16'),
 (780, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '[]', '2024-09-28 23:04:35', '2024-09-28 23:04:35'),
 (781, 1, 'admin/ajaxvaluepass', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax2@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-28 23:04:58', '2024-09-28 23:04:58'),
-(782, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-09-28 23:05:49', '2024-09-28 23:05:49');
+(782, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-09-28 23:05:49', '2024-09-28 23:05:49'),
+(783, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"13\",\"search_terms\":null,\"title\":\"Ajax Value save-1\",\"icon\":\"icon-arrows-alt-h\",\"uri\":\"ajaxvalue1\",\"roles\":[null],\"permission\":null,\"_token\":\"YslU3iIVLsNKJbGaJg2J8i0KNtCPvXiHGa0fqkKv\"}', '2024-09-28 23:32:23', '2024-09-28 23:32:23'),
+(784, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2024-09-28 23:32:23', '2024-09-28 23:32:23'),
+(785, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2024-09-28 23:32:27', '2024-09-28 23:32:27'),
+(786, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:33:00', '2024-09-28 23:33:00'),
+(787, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:33:04', '2024-09-28 23:33:04'),
+(788, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax@ajax3.com\",\"password\":\"*****-filtered-out-*****\",\"file\":\"1.png\"}', '2024-09-28 23:34:04', '2024-09-28 23:34:04'),
+(789, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:34:33', '2024-09-28 23:34:33'),
+(790, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"file\":\"1.png\"}', '2024-09-28 23:35:15', '2024-09-28 23:35:15'),
+(791, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:37:02', '2024-09-28 23:37:02'),
+(792, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"file\":\"1.png\"}', '2024-09-28 23:37:26', '2024-09-28 23:37:26'),
+(793, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:39:09', '2024-09-28 23:39:09'),
+(794, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-28 23:39:33', '2024-09-28 23:39:33'),
+(795, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:40:48', '2024-09-28 23:40:48'),
+(796, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-28 23:41:10', '2024-09-28 23:41:10'),
+(797, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:44:21', '2024-09-28 23:44:21'),
+(798, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-28 23:44:55', '2024-09-28 23:44:55'),
+(799, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:45:38', '2024-09-28 23:45:38'),
+(800, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-28 23:46:12', '2024-09-28 23:46:12'),
+(801, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:47:21', '2024-09-28 23:47:21'),
+(802, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-28 23:47:46', '2024-09-28 23:47:46'),
+(803, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:54:33', '2024-09-28 23:54:33'),
+(804, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-28 23:55:09', '2024-09-28 23:55:09'),
+(805, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-28 23:59:31', '2024-09-28 23:59:31'),
+(806, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-29 00:00:02', '2024-09-29 00:00:02'),
+(807, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:05:14', '2024-09-29 00:05:14'),
+(808, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-29 00:05:37', '2024-09-29 00:05:37'),
+(809, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:09:40', '2024-09-29 00:09:40'),
+(810, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-29 00:10:18', '2024-09-29 00:10:18'),
+(811, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:12:12', '2024-09-29 00:12:12'),
+(812, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-29 00:12:40', '2024-09-29 00:12:40'),
+(813, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:15:02', '2024-09-29 00:15:02'),
+(814, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":\"1.png\"}', '2024-09-29 00:15:23', '2024-09-29 00:15:23'),
+(815, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:16:01', '2024-09-29 00:16:01'),
+(816, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\",\"image\":null}', '2024-09-29 00:16:23', '2024-09-29 00:16:23'),
+(817, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:17:02', '2024-09-29 00:17:02'),
+(818, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:17:20', '2024-09-29 00:17:20'),
+(819, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:18:03', '2024-09-29 00:18:03'),
+(820, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:18:23', '2024-09-29 00:18:23'),
+(821, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:20:35', '2024-09-29 00:20:35'),
+(822, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:20:53', '2024-09-29 00:20:53'),
+(823, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:21:47', '2024-09-29 00:21:47'),
+(824, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:22:09', '2024-09-29 00:22:09'),
+(825, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '[]', '2024-09-29 00:22:20', '2024-09-29 00:22:20'),
+(826, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:22:49', '2024-09-29 00:22:49'),
+(827, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '[]', '2024-09-29 00:29:08', '2024-09-29 00:29:08'),
+(828, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '{\"name\":\"AA\",\"email\":\"a@a.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:29:27', '2024-09-29 00:29:27'),
+(829, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '[]', '2024-09-29 00:31:20', '2024-09-29 00:31:20'),
+(830, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '{\"name\":\"ajax4\",\"email\":\"ajax4@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:31:53', '2024-09-29 00:31:53'),
+(831, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '[]', '2024-09-29 00:35:18', '2024-09-29 00:35:18'),
+(832, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:35:41', '2024-09-29 00:35:41'),
+(833, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '[]', '2024-09-29 00:37:36', '2024-09-29 00:37:36'),
+(834, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:37:55', '2024-09-29 00:37:55'),
+(835, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:38:56', '2024-09-29 00:38:56'),
+(836, 1, 'admin/ajaxvalue', 'GET', '127.0.0.1', '[]', '2024-09-29 00:39:03', '2024-09-29 00:39:03'),
+(837, 1, 'admin/ajaxvaluepass', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"a1@a.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:39:24', '2024-09-29 00:39:24'),
+(838, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:39:49', '2024-09-29 00:39:49'),
+(839, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax3@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:40:27', '2024-09-29 00:40:27'),
+(840, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:42:22', '2024-09-29 00:42:22'),
+(841, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax4@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:42:59', '2024-09-29 00:42:59'),
+(842, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:44:25', '2024-09-29 00:44:25'),
+(843, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax5@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:44:47', '2024-09-29 00:44:47'),
+(844, 1, 'admin/ajaxvalue1', 'GET', '127.0.0.1', '[]', '2024-09-29 00:47:11', '2024-09-29 00:47:11'),
+(845, 1, 'admin/ajaxvaluepass1', 'POST', '127.0.0.1', '{\"name\":\"ajax\",\"email\":\"ajax6@ajax.com\",\"password\":\"*****-filtered-out-*****\"}', '2024-09-29 00:47:43', '2024-09-29 00:47:43');
 
 -- --------------------------------------------------------
 
@@ -1068,7 +1132,12 @@ CREATE TABLE `custom_user1` (
 INSERT INTO `custom_user1` (`userid`, `name`, `email`, `password`, `image`, `created_at`, `updated_at`) VALUES
 (44, 'ajax', 'ajax@ajax.com', '$2y$10$eA4NRjquMzYK.v5kbxhl9OIKpOw3By46rPmVeOH6lgGnLQ5EukfUi', 'ajax', '2024-09-28 23:00:21', '2024-09-28 23:00:21'),
 (45, 'ajax', 'ajax1@ajax.com', '$2y$10$xa0P4gOgHMDgcFu/CT8WSe5PblXVzJbgAiu9munhxa3u04fq/qT6W', 'ajax', '2024-09-28 23:04:16', '2024-09-28 23:04:16'),
-(46, 'ajax', 'ajax2@ajax.com', '$2y$10$LrAfG.5w5UKXihlcvIaqHOwELP33Pg8wcQBZ37NJFw9wVQ8PF6Db6', 'ajax', '2024-09-28 23:04:58', '2024-09-28 23:04:58');
+(46, 'ajax', 'ajax2@ajax.com', '$2y$10$LrAfG.5w5UKXihlcvIaqHOwELP33Pg8wcQBZ37NJFw9wVQ8PF6Db6', 'ajax', '2024-09-28 23:04:58', '2024-09-28 23:04:58'),
+(47, 'ajax', 'a1@a.com', '$2y$10$IwRFHRo4hMmWtO4O3sXCHOcakvp0kD8f8pla4ZmZOs7eoRMIDpirm', 'ajax', '2024-09-29 00:39:24', '2024-09-29 00:39:24'),
+(48, 'ajax', 'ajax3@ajax.com', '$2y$10$m9UHIs71y6D5i32W2XeSNO5VDGPqRCdZU1yG0g15Lr8Sc1kDQsIkq', 'ajax', '2024-09-29 00:40:27', '2024-09-29 00:40:27'),
+(49, 'ajax', 'ajax4@ajax.com', '$2y$10$bJw5Ceu49.bc/85go3Lb/.wAJh.sIekbSGgPXAZ801/sa3QFmzHXW', 'uploads/1727592179_1.png', '2024-09-29 00:42:59', '2024-09-29 00:42:59'),
+(50, 'ajax', 'ajax5@ajax.com', '$2y$10$Qul7lpMhudN06pmcNVEpqOMSKB/PTxxAhj5Mm/fP5mPorRhh4rSx.', 'uploads/1727592287_1.png', '2024-09-29 00:44:47', '2024-09-29 00:44:47'),
+(51, 'ajax', 'ajax6@ajax.com', '$2y$10$WxcT9y3eHSknpEj.lflBKupCwbmzZzBQujwB6VGOPvPv/r6lWOxBa', 'uploads/1727592463_1.png', '2024-09-29 00:47:43', '2024-09-29 00:47:43');
 
 -- --------------------------------------------------------
 
@@ -1278,13 +1347,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=783;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=846;
 
 --
 -- AUTO_INCREMENT for table `admin_permissions`
@@ -1314,7 +1383,7 @@ ALTER TABLE `custom_user`
 -- AUTO_INCREMENT for table `custom_user1`
 --
 ALTER TABLE `custom_user1`
-  MODIFY `userid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `userid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
